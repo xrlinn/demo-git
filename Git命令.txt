@@ -1,0 +1,33 @@
+查看分支：git branch                生成SSH公钥：ssh-keygen -t rsa -C "email"(linux下)
+
+创建分支：git branch <name>      cd ~ 到用户目录下    输入vim ~/.ssh/id_rsa.pub得到公钥信息
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+从github上clone代码：git clone url
+
+将文件存入缓存区：git add 文件名 文件名 。。。。。。
+
+将文件提交：git commit -m 描述
+
+将文件推入远程仓库：git push 
+
+第一次连远程仓库：git remote add origin url
+
+第一次提交：git push origin master
+
+到原来的版本：git reset --hard commitid
+
+拉取的时候不需要自己的代码：git reset --hard origin/master
+
+只做自己的提交，不管别人的修改：git push -f（强制提交）
+
+
+
+
