@@ -1,0 +1,49 @@
+属性选择器：
+.box[title(属性名)]  .box[title = xxx] 选择具有title属性，具属性值为xxx
+.box[title *= xxx] 选择具有title属性，且属性值中包含有”xxx”
+.box[title ^= xxx] 选择具有title属性，且属性值中以”xxx”开头
+.box[title $= xxx] 选择具有title属性，且属性值中以”xxx”结束
+.box[title ~= xxx] 选择具有title属性，且属性值中”xxx”是以空格分隔的独立部分
+.box[title |= xxx]  选择具有title属性，且属性值中以”xxx”或”xxx-”开头
+
+关系选择器
+section>div section div (父子关系，)
+div+span div~span (兄弟关系,  紧挨着的  后面所有的)
+
+伪类选择器
+:root	根元素选择器
+:nth-child(n)	选中第n个孩子
+:first-child	选中第一个孩纸
+:last-child	选中最后一个孩纸
+:nth-last-child(n)	选中倒数第n个孩子
+:only-child	独生子女
+:nth-child(2n)    :nth-child(even)	选中排行偶数的孩纸
+:nth-child(2n+1)  :nth-child(odd)	选中排行奇数的孩纸
+:nth-child(-n+5)	选中排行前5的孩纸
+:nth-of-type(n)	选择其父母下的排行第n的同类孩子
+:first-of-type	选择同类中的第一个孩子
+:last-of-type	选择同类中的最后一个孩子
+:nth-of-type(2n)     :nth-of-type(even)	选择同类中排行偶数的孩子
+:nth-of-type(2n+1)   :nth-of-type(odd)	选择同类中排行奇数的孩子
+:nth-of-type(-n+2)	选择同类中排行同两个的孩子
+:only-of-type	选择同类中唯一一个的孩子
+:nth-last-of-type(n)	选择同类中倒数第n个孩子
+:hover	任意元素都可以使用，鼠标在元素上盘旋时
+:active	任意元素都可以使用，元素处于激活时
+:focus	当表单处于焦点时
+:checked	当表单元素处于选中状态时
+:disabled	当表单元素处处于不可用时
+:enabled	当表单元素处于可用时
+:lang()	表单元素处于某种语言时
+:empty	选择空元素
+:not(selector)	取非
+:target	当锚点处于当前状态时
+
+a标签的4种状态
+a:link   a:visited(访问后)  a:hover(悬停时)  a:active(点击时) 
+
+透明度表示法	说明
+transparent	背景完全透明
+rgba	a表示不透明度， 取值 0~1
+opcity	表示不透明度，使用方法： opacity: .5
+
