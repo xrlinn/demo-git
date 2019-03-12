@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 650px;
+            height: 600px;
+            margin: 100px auto;
+            background: url("./images/38/turntable-bg.jpg")
+        }
+        .turn{
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            left: 116px;
+            top: 58px;
+            background: url("./images/38/turntable.png");
+            z-index: 2;
+            transition: transform ease 2s
+        }
+        .pointer{
+            cursor: pointer;
+            position: absolute;
+            width: 174px;
+            height: 228px;
+            left: 261px;
+            top: 156px;
+            background: url("./images/38/pointer.png");
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="pointer"></div>
+        <div class="turn"></div>
+    </div>
+</body>
+<script>
+    var pointer = document.querySelector(".pointer")
+    var turn = document.querySelector(".turn")
+    // 51.42857
+    var deg = 0;
+    pointer.onclick = function(){
+        deg += 720 + Math.ceil(Math.random()*7)*51.42857
+        turn.style.transform = `rotateZ(${deg}deg)`
+    }
+
+</script>
+</html>

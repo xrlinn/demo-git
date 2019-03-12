@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            perspective: 2000px;
+        }
+        .main {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform ease 5s
+        }
+        li {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            line-height: 400px;
+            font-size: 100px;
+            color: red;
+        }
+        li:nth-child(1){
+            background: url("./images/46/1.jpg") no-repeat;
+            transform: translateZ(200px)
+        }
+        li:nth-child(2){
+            background: url("./images/46/2.jpg") no-repeat;
+            transform: rotateX(90deg) translateZ(200px)
+        }
+        li:nth-child(3){
+            background: url("./images/46/3.jpg") no-repeat;
+            transform: rotateX(180deg) translateZ(200px)
+        }
+        li:nth-child(4){
+            background: url("./images/46/4.jpg") no-repeat;
+            transform: rotateX(270deg) translateZ(200px)
+        }
+        li:nth-child(5){
+            background: url("./images/46/5.jpg") no-repeat;
+            transform: rotateY(90deg) translateZ(200px)
+        }
+        li:nth-child(6){
+            background: url("./images/46/6.jpg") no-repeat;
+            transform: rotateY(270deg) translateZ(200px)
+        }
+        body:hover .main{
+            transform: rotateX(720deg) rotateY(720deg)
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="main">
+            <li class="main-item">1</li>
+            <li class="main-item">2</li>
+            <li class="main-item">3</li>
+            <li class="main-item">4</li>
+            <li class="main-item">5</li>
+            <li class="main-item">6</li>
+        </ul>
+    </div>
+</body>
+</html>

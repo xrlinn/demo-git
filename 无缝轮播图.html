@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+        }
+        body{
+            background: #000
+        }
+        li{
+            list-style: none;
+        }
+        .box {
+            margin: 100px auto;
+            width: 600px;
+            height: 200px;
+           overflow: hidden;
+           background: #000
+        }
+        .main {
+            width: 4000px;
+            height: 200px;
+            transform: translate3d(-1200px,0,0);
+            animation: go linear 5s infinite;
+        }
+        .main>.item {
+            float: left;
+        }
+        @keyframes go {
+            from {
+                transform: translate3d(0px,0,0)
+            } to {
+                transform: translate3d(-1200px,0,0)
+            }
+        }
+        .box:hover .main{
+            animation-play-state: paused
+        }
+        .box:hover li {
+            opacity: 0.6;
+        }
+        .box li:hover{
+            opacity: 1;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="main">
+            <li class="item">
+                <img src="./images/53/01.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./images/53/02.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./images/53/03.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./images/53/04.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./images/53/01.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./images/53/02.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: pink;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+        }
+        ul>li {
+            position: relative;
+            margin: 20px;
+            width: 258px;
+            height: 258px;
+        }
+        li>div {
+            position: absolute;
+            width: 258px;
+            height: 258px;
+            border-radius: 50%
+        }
+        li .bottom {
+            background: url("./images/43/xiaoming.png") no-repeat;
+        }
+        li .top {
+            background: url("./images/43/baby.png") no-repeat;
+            transition: transform ease 0.7s
+        }
+        li:nth-child(1) .top{
+            transform-origin: center bottom;
+        }
+        li:nth-child(1):hover .top{
+            transform: rotateX(-180deg)
+        }
+        li:nth-child(2) .top{
+            transform-origin: left center;
+        }
+        li:nth-child(2):hover .top{
+            transform: rotatey(180deg)
+        }
+        li:nth-child(3) .top{
+            transform-origin: right center;
+        }
+        li:nth-child(3):hover .top{
+            transform: rotatey(-180deg)
+        }
+        li:nth-child(4) .top{
+            transform-origin: center top;
+        }
+        li:nth-child(4):hover .top{
+            transform: rotatex(180deg)
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <div class="bottom"></div>
+                <div class="top"></div> 
+            </li>
+            <li>
+                <div class="bottom"></div>
+                <div class="top"></div> 
+            </li>
+            <li>
+                <div class="bottom"></div>
+                <div class="top"></div> 
+            </li>
+            <li>
+                <div class="bottom"></div>
+                <div class="top"></div> 
+            </li>
+          
+         
+        </ul>
+    </div>
+</body>
+</html>
