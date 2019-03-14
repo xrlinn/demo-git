@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            position: absolute;
+            display: flex;
+            /* width: 3000px; */
+            list-style: none;
+           
+        }
+        .box{
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 50px auto;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        /* li{
+            float: left;
+        } */
+        /* .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        } */
+        img{
+            display: block;
+        }
+        .item-list{
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translate(-50%,0);
+            background: rgba(255,255,255,0.5);
+            padding:0 6px;
+            border-radius: 6px;
+            line-height: 1;
+        }
+        .item-list span{
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background:rgba(255, 255, 255, 0.8);
+            line-height: 1;
+            float: left;
+            margin: 4px;
+        }
+        .item-list span.active{
+            background: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="clearfix" id="ul">
+            <li><img src="./images/01/1.webp" alt=""></li>
+            <li><img src="./images/01/2.jpg" alt=""></li>
+            <li><img src="./images/01/3.jpg" alt=""></li>
+            <li><img src="./images/01/4.webp" alt=""></li>
+            <li><img src="./images/01/5.jpg" alt=""></li>
+        </ul>
+        <div class="item-list clearfix">
+            <span class="item active"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+</body>
+<script>
+     function go(dom,target){
+        var speed = target - dom.offsetLeft >0? 4:-4
+        var timer = setInterval(() => {
+            if(dom.offsetLeft == target){
+                clearInterval(timer)
+            }else{
+                dom.style.left = dom.offsetLeft + speed + "px"; 
+            }
+        },1/30)
+    }
+
+    var btns = document.querySelectorAll(".item")
+    var ul = document.getElementById("ul")
+
+    
+        btns.forEach((item,index) => {
+            item.onclick = function(){
+                go(ul,-index*520)
+            }
+        })
+</script>
+</html>

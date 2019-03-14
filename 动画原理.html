@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+        }
+        #btn{
+            position: fixed;
+            top: 150px;
+            left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">停止动画</button>
+</body>
+<script>
+    var box = document.querySelector(".box");
+    var btn = document.querySelector("#btn")
+
+    // var timer = setInterval(() => {
+    //     box.style.marginLeft = box.offsetLeft + 1 + "px";
+    // },30)
+
+    btn.onclick = function(){
+        clearInterval(timer)
+    }
+
+    function go(dom,target){
+        var timer = setInterval(() => {
+            if(dom.offsetLeft == target){
+                clearInterval(timer)
+            }else{
+                dom.style.marginLeft = dom.offsetLeft + 1 + "px"; 
+            }
+        },1/30)
+    }
+    go(box,800)
+
+</script>
+</html>
