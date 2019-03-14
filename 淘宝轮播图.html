@@ -97,6 +97,10 @@
     
         btns.forEach((item,index) => {
             item.onclick = function(){
+                btns.forEach(it => {
+                    it.classList.remove("active")
+                })
+                this.classList.add("active")
                 go(ul,-index*520)
             }
         })
