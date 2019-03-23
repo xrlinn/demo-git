@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1050533_eem9qmpztrs.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 100px auto;
+            position: relative;
+            width: 380px;
+            height: 422px;
+        }
+        .left{
+            position: relative;
+            display: inline-block;
+            height: 215px;
+            width: 161.5px;
+            border: 1px solid rgba(0, 0,0,0.5)
+        }
+        .right{
+            float:right;
+            height: 215px;
+            width: 161.5px;
+            border: 1px solid rgba(0, 0,0,0.5);
+            background:url("./01.jpg"),no-repeat;
+            display: none;
+        }
+        img{
+            position: absolute;
+            vertical-align: middle;
+            height: 215px;
+            width: 161.5px;
+          
+        }
+        span.icon-fangdajing{
+            position: relative;
+            bottom: 8px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            color: #333;
+            background-color: #fff;
+            display:none;
+        }
+        .smb{
+            position: absolute;
+            background-image: url("//img-tmdetail.alicdn.com/tps/i4/T12pdtXaldXXXXXXXX-2-2.png");
+            width: 80.75px;
+            height: 107.5px;
+            cursor: move;
+            display: none;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="./01.jpg" alt="">
+            <span class="smb"></span>
+        </div>
+        <span class="iconfont icon-fangdajing"></span>
+        <div class="right">
+
+        </div> 
+          
+    </div>
+     
+</body>
+<script src="./jquery.js"></script>
+<script>
+   $(".left").mouseover (function(e){
+
+        $(".smb").css("display","block")
+        $(".right").css("display","block")
+        $(".icon-fangdajing").css("display","inline-block")
+        $(document).bind("mousemove",function(e){
+            var e = e || window.event;
+            //console.log(e)
+            var orignX = e.clientX
+            var orignY = e.clientY
+            console.log(orignX,orignY)
+
+            //设置鼠标移动小框位置
+            var centerX = orignX -$(".left").offset().left - $(".smb").width()/2 
+            
+            var centerY = orignY -$(".left").offset().top - $(".smb").height()/2 
+            console.log(centerX,centerY)
+            $(".smb").css({left:centerX,top:centerY})
+
+            //判断边界
+            var maxX = $(".left").width() - $(".smb").width()
+            var maxY = $(".left").height() - $(".smb").height()
+            var lw = $(".smb").position().left
+            var lh = $(".smb").position().top
+            if(lw < 0){
+                $(".smb").css("left",0)
+            }else if(lw > maxX){
+                $(".smb").css("left",maxX)
+            }
+            if(lh < 0){
+                $(".smb").css("top",0)
+            }else if(lh > maxY){
+                $(".smb").css("top",maxY)
+            }
+
+            //设置右边框背景图移动距离
+            var lw = $(".smb").position().left
+            var lh = $(".smb").position().top
+            $(".right").css({"background-positionY":-lh*$(".left").width()/$(".smb").width()})
+            $(".right").css({"background-positionX":-lw*$(".left").height()/$(".smb").height()})
+
+            $(document).mouseout(function(){
+                $(document).unbind("mousemove")
+                $(".right").css("display","none")
+                $(".icon-fangdajing").css("display","none")
+                $(".smb").css("display","none")
+            })
+       })   
+        
+
+   })
+</script>
+</html>
